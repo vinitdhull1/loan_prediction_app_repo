@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom {
+    /* background: linear-gradient(to right, #360033, #0b8793); */
+    background: linear-gradient(to right, #aa076b, #61045f);
+}
+
+.btn-custom {
+    padding: 10px;
+    background: linear-gradient(to right, #aa076b, #61045f);
+    color: white;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    width: 200px;
+    font-size: 20px;
+}
