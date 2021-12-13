@@ -12,6 +12,6 @@ def index(request):
         credit_history = request.POST.get("credit_history")
         applicant_income = request.POST.get("applicant_income")
         loan_amount_term = request.POST.get("loan_amount_term")
-        property_area = request.POST.get("property_area")
-        property_area = request.POST.get("property_area")
+        property_area = request.POST.get("property_area") 
+        print(property_area)
     return render(request, 'index.html')
