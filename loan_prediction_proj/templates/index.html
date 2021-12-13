@@ -18,14 +18,14 @@
     <title>Loan Prediction Application - HOME</title>
     <script>
         function show_processing_for_file() {
-            document.getElementById('spinner').style.display = "";
-            var x = document.getElementById("MsgBox");
-            if (x.style.display === "block") {
-                x.style.display = "none";
+            document.getElementById('spinner').style.display="";
+            var x=document.getElementById("MsgBox");
+            if (x.style.display==="block") {
+                x.style.display="none";
             }
 
             else {
-                x.style.display = "none";
+                x.style.display="none";
             }
         }
     </script>
@@ -34,15 +34,15 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand text-center text-white" href="#">LOAN PREDICTOR</a>
+            <a class="navbar-brand text-center text-white" href="#">MORTGAGE LOAN PREDICTOR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
@@ -64,11 +64,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                </ul> -->
+                    </li> -->
+                </ul>
                 <form class="d-flex">
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    <h2 class="text-end text-white">APTARA</h6>
                 </form>
             </div>
         </div>
@@ -94,11 +95,10 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <select class="form-select" name="marital_status" aria-label="Default select example"
-                                    required>
+                                <select class="form-select" name="marital_status" aria-label="Default select example" required>
                                     <option selected>Choose Marital Status</option>
                                     <option value="Single">Single</option>
-                                    <option value="Marreid">Marreid</option>
+                                    <option value="Married">Married</option>
                                 </select>
                             </div>
                         </div>
@@ -106,8 +106,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
-                                <select class="form-select" name="dependents" aria-label="Default select example"
-                                    required>
+                                <select class="form-select" name="dependents" aria-label="Default select example" required>
                                     <option selected>Select Dependents</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
@@ -118,8 +117,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <select class="form-select" name="education" aria-label="Default select example"
-                                    required>
+                                <select class="form-select" name="education" aria-label="Default select example" required>
                                     <option selected>Choose Education Status</option>
                                     <option value="Graduate">Graduate</option>
                                     <option value="Not Graduate">Not Graduate</option>
@@ -140,8 +138,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <select class="form-select" name="credit_history" aria-label="Default select example"
-                                    required>
+                                <select class="form-select" name="credit_history" aria-label="Default select example" required>
                                     <option selected>Select Credit History</option>
                                     <option value="0">0</option>
                                     <option value="1">1</option>
@@ -150,22 +147,22 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="applicant_income" class="form-label">Applicant Income</label>
+                        <label for="applicant_income" class="form-label">Applicant Monthly Income</label>
                         <input type="float" name="applicant_income" class="form-control" id="applicant_income"
                             placeholder="Enter income in numeral range" required>
                     </div>
                     <div class="mb-3">
-                        <label for="co_applicant_income" class="form-label">Co-Applicant Income</label>
+                        <label for="co_applicant_income" class="form-label">Co-Applicant Monthly Income</label>
                         <input type="float" name="co_applicant_income" class="form-control" id="co_applicant_income"
                             placeholder="Enter income in numeral range" required>
                     </div>
                     <div class="mb-3">
-                        <label for="loan_amount" class="form-label">Loan Amount</label>
+                        <label for="loan_amount" class="form-label">Loan Amount (in thousands)</label>
                         <input type="float" name="loan_amount" class="form-control" id="loan_amount"
                             placeholder="Enter amount in numeral range" required>
                     </div>
                     <div class="mb-3">
-                        <label for="loan_amount_term" class="form-label">Loan Amount Term</label>
+                        <label for="loan_amount_term" class="form-label">Loan Amount Term (in months)</label>
                         <input type="float" name="loan_amount_term" class="form-control" id="loan_amount_term"
                             placeholder="Enter loan amount term in numeral range" required>
                     </div>
@@ -187,6 +184,28 @@
                         <div class="spinner-border" role="status" id="spinner" style="display:none;">
                             <span class="sr-only">Loading...</span>
                         </div>
+                    </div>
+
+                    <div class="col">
+                            {% if loan_status == 'Approved' %}
+                                <div class="mb-3 text-center mt-3">
+
+                                    <img src="{% static 'media/loan-approved-green.jpg' %}" style="height:150px;">
+
+                                </div>
+                            {% elif loan_status == 'Denied' %}
+                                <div class="mb-3 text-center mt-3">
+
+                                    <img src="{% static 'media/loan-denied.jpg' %}" style='height:150px;'>
+
+                                </div>
+                            {% endif %}
+
+                            <div class="mb-3 text-center mt-4">
+
+                                {{loan_status}}
+
+                            </div>  
                     </div>
                 </div>
             </div>
