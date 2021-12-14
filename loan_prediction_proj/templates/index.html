@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <title>Loan Prediction Application - HOME</title>
+    <title>MORTGAGE LOAN PREDICTOR - HOME</title>
     <script>
         function show_processing_for_file() {
             document.getElementById('spinner').style.display="";
@@ -34,7 +34,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand text-center text-white" href="#" style="font-size:x-large;">APTARA</a>
+            <a class="navbar-brand text-center text-white" href="#" style="font-size:x-large;">APTARA&#174;</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -69,14 +69,15 @@
                 <form class="d-flex">
                     <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button> -->
-                    <h5 class="text-end text-white">MORTGAGE LOAN PREDICTOR</h5>
+                    <!-- <h5 class="text-end text-white">MORTGAGE LOAN PREDICTOR</h5> -->
+                    <a href="{% url 'logout' %}" class="text-white">LOG OUT</a>
                 </form>
             </div>
         </div>
     </nav>
     <!----------------------END NAVIGATION--------------->
     <div class="container text-center mt-3">
-        <h5>Check whether your loan will be approved or not!</h5>
+        <h5>MORTGAGE LOAN PREDICTOR</h5>
     </div>
     <div class="container border mt-3 mb-3">
         <form action="{% url 'index' %}" class="form-anticlear" method="post">

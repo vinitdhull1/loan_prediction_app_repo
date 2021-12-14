@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from .helpers import *
 import pandas as pd
+from django.contrib import auth, messages
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-
+@login_required(login_url='login')
 def index(request):
     if request.method == "POST":
 
@@ -69,3 +73,28 @@ def index(request):
                     "loan_image":image}
         return render(request, 'index.html', context)
     return render(request, "index.html")
+
+@login_required(login_url='login')
+def log_out(request):
+    auth.logout(request)
+    return render(request, 'login.html')
+
+
+def log_in(request):
+    if request.user.is_authenticated:
+        return redirect(index)
+    else:
+        context = {}
+        if request.method == "POST":
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user:
+                login(request, user)
+                # return render(request, 'index.html')
+                return redirect(index)
+            else:
+                messages.error(request, 'please enter correct credentials!')
+                return render(request, 'login.html', context)
+        else:
+            return render(request, 'login.html')
